@@ -1,7 +1,6 @@
 module.exports = {
   important: true,
   content: ["./app/javascript/**/*.{js,jsx}", "./app/views/**/*.html.erb"],
-  purge: [],
   theme: {
     extend: {
       colors: {
@@ -20,6 +19,4 @@ module.exports = {
       },
     },
   },
-  variants: {},
-  plugins: [],
 };
