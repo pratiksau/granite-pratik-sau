@@ -15,7 +15,7 @@ module SQLite3RegexpExtension
             begin
               regex = Regexp.new(pattern.to_s, Regexp::IGNORECASE)
               func.result = expression.to_s.match(regex) ? 1 : 0
-            rescue => e
+            rescue => _
               func.result = 0
             end
           end
@@ -25,7 +25,7 @@ module SQLite3RegexpExtension
             begin
               regex = Regexp.new(pattern.to_s, Regexp::IGNORECASE)
               func.result = expression.to_s.match(regex) ? 1 : 0
-            rescue => e
+            rescue => _
               func.result = 0
             end
           end
