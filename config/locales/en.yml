@@ -30,6 +30,7 @@
 en:
   hello: "Hello world"
   generic_error: "An error occurred while processing your request. Please try again later."
+  successfully_created: "Task was successfully created"
   task:
     slug:
       immutable: "is immutable!"

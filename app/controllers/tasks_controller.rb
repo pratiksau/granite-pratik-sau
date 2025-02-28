@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   def create
     task = Task.new(task_params)
     task.save!
-    render_notice("Task created successfully")
+    render_notice(t("successfully_created"))
   end
 
   private
