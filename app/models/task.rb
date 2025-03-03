@@ -3,6 +3,9 @@
 class Task < ApplicationRecord
   MAX_TITLE_LENGTH = 125
   VALID_TITLE_REGEX = /\A.*[a-zA-Z0-9\s].*\z/i
+
+  belongs_to :assigned_user, foreign_key: "assigned_user_id", class_name: "User"
+
   validates :title, presence: true, length: { maximum: MAX_TITLE_LENGTH },
     format: { with: VALID_TITLE_REGEX }
   validates :slug, uniqueness: true
