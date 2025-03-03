@@ -24,12 +24,12 @@ const Form = ({
 
   const initialValues = useRef({
     title,
-    userId: assignedUser.id,
+    userId: assignedUser?.id,
   });
 
   const isNotDirty = equals(initialValues.current, {
     title,
-    userId: assignedUser.id,
+    userId: assignedUser?.id,
   });
 
   return (
