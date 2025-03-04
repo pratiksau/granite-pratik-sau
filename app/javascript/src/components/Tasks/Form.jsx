@@ -14,6 +14,7 @@ const Form = ({
   setUserId,
   loading,
   handleSubmit,
+  userId,
 }) => {
   const history = useHistory();
   const userOptions = users.map(user => ({
@@ -29,7 +30,7 @@ const Form = ({
 
   const isNotDirty = equals(initialValues.current, {
     title,
-    userId: assignedUser?.id,
+    userId,
   });
 
   return (
