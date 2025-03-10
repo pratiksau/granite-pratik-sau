@@ -23,6 +23,7 @@ class TasksController < ApplicationController
     # render_json({ task: @task, assigned_user: @task.assigned_user })
     # render_json({ task: @task.as_json(include: { assigned_user: { only: %i[name id] } }) })
     authorize @task
+    @comments = @task.comments.order(created_at: :desc)
     render
   end
 

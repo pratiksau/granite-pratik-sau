@@ -8,6 +8,8 @@ class Task < ApplicationRecord
 
   belongs_to :assigned_user, foreign_key: "assigned_user_id", class_name: "User"
 
+  has_many :comments, dependent: :destroy
+
   validates :title, presence: true, length: { maximum: MAX_TITLE_LENGTH },
     format: { with: VALID_TITLE_REGEX }
   validates :slug, uniqueness: true
