@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
+  RESTRICTED_ATTRIBUTES = %i[title task_owner_id assigned_user_id]
+
   MAX_TITLE_LENGTH = 125
   VALID_TITLE_REGEX = /\A.*[a-zA-Z0-9\s].*\z/i
+
+  enum :progress, { pending: "pending", completed: "completed" }, default: :pending
 
   belongs_to :task_owner, foreign_key: "task_owner_id", class_name: "User"
 
