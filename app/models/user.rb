@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   has_many :created_tasks, foreign_key: :task_owner_id, class_name: "Task"
   has_many :assigned_tasks, foreign_key: :assigned_user_id, class_name: "Task"
-
   has_many :comments, dependent: :destroy
+
   validates :name, presence: true, length: { maximum: MAX_NAME_LENGTH }
   validates :password, length: { minimum: MIN_PASSWORD_LENGTH }, if: -> { password.present? }
   validates :password_confirmation, presence: true, on: :create
@@ -19,12 +19,10 @@ class User < ApplicationRecord
     format: { with: VALID_EMAIL_REGEX }
 
   before_destroy :assign_tasks_to_task_owners
+  before_save :to_lowercase
 
   has_secure_password
-
   has_secure_token :authentication_token
-
-  before_save :to_lowercase
 
   private
 
