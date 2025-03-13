@@ -8,8 +8,8 @@ jobs:
     parallelism: 1
     docker:
       - image: cimg/ruby:3.2.2
-      - image: cimg/redis:5.0.14
-      - image: cimg/postgres:9.6
+      # - image: cimg/redis:5.0.14
+      # - image: cimg/postgres:9.6
         environment:
           POSTGRES_HOST_AUTH_METHOD: trust
 
