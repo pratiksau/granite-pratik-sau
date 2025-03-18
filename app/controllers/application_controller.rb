@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
       if is_valid_token
         @current_user = user
       else
-        render_error(I18n.t("session.could_not_authenticate"), :unauthorized)
+        render_error(I18n.t("session.could_not_auth"), :unauthorized)
       end
     end
 
