@@ -2,7 +2,7 @@ import axios from "axios";
 
 const show = () => axios.get("/preference");
 
-const mail = ({ payload }) => axios.patch(`/preference//mail`, payload);
+const mail = ({ payload }) => axios.patch(`/preference/mail`, payload);
 
 const update = ({ payload }) => axios.put("/preference", payload);
 

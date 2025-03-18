@@ -91,4 +91,14 @@ class UserTest < ActiveSupport::TestCase
 
     assert_not_same @user.authentication_token, second_user.authentication_token
   end
+
+  def test_preference_created_is_valid
+    @user.save
+    assert @user.preference.valid?
+  end
+
+  def test_notification_delivery_hour_uses_default_value
+    @user.save
+    assert_equal Constants::DEFAULT_NOTIFICATION_DELIVERY_HOUR, @user.preference.notification_delivery_hour
+  end
 end
