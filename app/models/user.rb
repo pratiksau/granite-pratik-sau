@@ -16,6 +16,8 @@ class User < ApplicationRecord
     user.has_one :preference, foreign_key: :user_id
   end
 
+  has_one_attached :report
+
   validates :name, presence: true, length: { maximum: MAX_NAME_LENGTH }
   validates :password, length: { minimum: MIN_PASSWORD_LENGTH }, if: -> { password.present? }
   validates :password_confirmation, presence: true, on: :create

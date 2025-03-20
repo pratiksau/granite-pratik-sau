@@ -2,21 +2,15 @@
 
 class Tasks::ReportsController < ApplicationController
   def create
-    ReportsJob.perform_async(current_user.id, report_path.to_s)
-    render_notice(t("in_progress", action: "Report generation"))
+    ReportsJob.perform_async(current_user.id)
   end
 
   def download
-    if File.exist?(report_path.to_s)
-      send_file(
-        report_path,
-        type: "application/pdf",
-        filename: pdf_file_name,
-        disposition: "attachment"
-      )
-    else
-      render_error(t("not_found", entity: "report"), :not_found)
+    unless @current_user.report.attached?
+      render_error(t("not_found", entity: "report"), :not_found) and return
     end
+
+    send_data @current_user.report.download, filename: pdf_file_name, content_type: "application/pdf"
   end
 
   private
