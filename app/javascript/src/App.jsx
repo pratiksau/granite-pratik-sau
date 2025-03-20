@@ -8,6 +8,7 @@ import { Login, Signup } from "components/Authentication";
 import { PrivateRoute } from "components/commons";
 import Dashboard from "components/Dashboard";
 import { CreateTask, EditTask, ShowTask } from "components/Tasks";
+import DownloadReport from "components/Tasks/DownloadReport";
 import { getFromLocalStorage } from "utils/storage";
 
 import Preferences from "./components/Preferences";
@@ -26,6 +27,7 @@ const App = () => {
         <Route exact component={Signup} path="/signup" />
         <Route exact component={Login} path="/login" />
         <Route exact component={Preferences} path="/my/preferences" />
+        <Route exact component={DownloadReport} path="/tasks/report" />
         <PrivateRoute
           component={Dashboard}
           condition={isLoggedIn}
