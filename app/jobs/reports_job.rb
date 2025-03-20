@@ -14,7 +14,7 @@ class ReportsJob
       layout: "pdf"
     )
     pdf_blob = WickedPdf.new.pdf_from_string content
-    FileUtils.mkdir_p(File.dirname(report_path)) unless File.directory?(File.dirname(report_path))
+    FileUtils.mkdir_p(File.dirname(report_path.to_s)) unless File.directory?(File.dirname(report_path.to_s))
     File.open(report_path, "wb") do |f|
       f.write(pdf_blob)
     end
