@@ -15,9 +15,9 @@ class Tasks::ReportsController < ApplicationController
 
   private
 
-    def report_path
-      @_report_path ||= Rails.root.join("tmp/#{pdf_file_name}")
-    end
+    # def report_path
+    #   @_report_path ||= Rails.root.join("tmp/#{pdf_file_name}")
+    # end
 
     def pdf_file_name
       "granite_task_report.pdf"
