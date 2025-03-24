@@ -8,9 +8,9 @@ if defined?(ActiveRecord::ConnectionAdapters::SQLite3Adapter)
       original_initialize(*args)
 
       raw_connection.create_function("regexp", 2) do |function, pattern, expression|
-          regex_matcher = Regexp.new(pattern.to_s, Regexp::IGNORECASE)
-          function.result = expression.to_s.match(regex_matcher) ? 1 : 0
-        end
+        regex_matcher = Regexp.new(pattern.to_s, Regexp::IGNORECASE)
+        function.result = expression.to_s.match(regex_matcher) ? 1 : 0
       end
+    end
   end
 end
